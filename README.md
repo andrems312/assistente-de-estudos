@@ -63,6 +63,20 @@ proj agente/
 | `OPENROUTER_MODEL`   | Modelo usado                           | `openrouter/free` |
 | `FLASK_SECRET_KEY`   | Chave secreta das sessões (opcional)   | gerada automática |
 
+## ☁️ Deploy online (gratuito no Render)
+
+O projeto já vem pronto para publicar no [Render](https://render.com) usando o
+arquivo [`render.yaml`](render.yaml).
+
+1. Crie uma conta gratuita no Render (pode entrar com o GitHub).
+2. No painel, clique em **New → Blueprint**.
+3. Conecte este repositório. O Render lê o `render.yaml` automaticamente.
+4. Em **Environment**, preencha a variável `OPENROUTER_API_KEY` com sua chave.
+5. Clique em **Apply / Create** e aguarde o build. No fim, você recebe uma URL pública.
+
+> Observação: no plano gratuito o serviço "dorme" após um tempo sem uso e
+> leva alguns segundos para acordar no primeiro acesso.
+
 ## 📝 Licença
 
 MIT

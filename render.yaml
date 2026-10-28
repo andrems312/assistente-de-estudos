@@ -1,0 +1,23 @@
+# Configuração de deploy no Render (https://render.com)
+# No painel: New > Blueprint > conecte este repositório.
+# O Render lê este arquivo e cria o serviço automaticamente.
+
+services:
+  - type: web
+    name: assistente-de-estudos
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # 1 worker para manter o histórico de conversa consistente (fica em memória)
+    startCommand: gunicorn app:app --workers 1 --bind 0.0.0.0:$PORT
+    envVars:
+      # Preencha sua chave da OpenRouter no painel do Render (não fica no código)
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: openrouter/free
+      # Secret das sessões gerado automaticamente pelo Render
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: "3.12.6"
