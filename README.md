@@ -6,6 +6,8 @@ possui ferramentas para informar a **hora** e a **data** atuais.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue) ![Flask](https://img.shields.io/badge/Flask-3.x-black) ![License](https://img.shields.io/badge/license-MIT-green)
 
+![Interface do Assistente de Estudos](docs/screenshot.jpg)
+
 ## ✨ Recursos
 
 - Interface de chat moderna (tema escuro, gradientes, animações, responsiva)
