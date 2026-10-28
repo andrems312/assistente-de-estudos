@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Assistente de Estudos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v2M12 19v2M5 12H3M21 12h-2M18.4 5.6l-1.4 1.4M7 17l-1.4 1.4M18.4 18.4 17 17M7 7 5.6 5.6"/>
+          <circle cx="12" cy="12" r="4"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Assistente<span>de Estudos</span></h1>
+      </div>
+    </div>
+
+    <button class="new-chat" id="btnReset">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      Nova conversa
+    </button>
+
+    <div class="sidebar-section">
+      <p class="sidebar-label">O que posso fazer</p>
+      <div class="feature"><span class="dot"></span> Explicar programação e tecnologia</div>
+      <div class="feature"><span class="dot"></span> Tirar dúvidas de estudo</div>
+      <div class="feature"><span class="dot"></span> Dizer a hora e a data atual</div>
+    </div>
+
+    <div class="sidebar-footer">
+      <span class="status"><span class="status-dot"></span> Online</span>
+      <span class="model-tag">{{ model }}</span>
+    </div>
+  </aside>
+
+  <main class="chat">
+    <header class="chat-header">
+      <div class="chat-title">
+        <span class="live-dot"></span>
+        Chat
+      </div>
+      <div class="chat-sub">Powered by OpenRouter</div>
+    </header>
+
+    <div class="messages" id="messages">
+      <div class="welcome" id="welcome">
+        <div class="welcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v2M12 19v2M5 12H3M21 12h-2M18.4 5.6l-1.4 1.4M7 17l-1.4 1.4M18.4 18.4 17 17M7 7 5.6 5.6"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+        <h2>Olá! Como posso ajudar nos seus estudos?</h2>
+        <p>Pergunte sobre programação, tecnologia ou qualquer dúvida.</p>
+        <div class="chips">
+          <button class="chip">Explique o que é uma API</button>
+          <button class="chip">Que horas são?</button>
+          <button class="chip">Como funciona um loop em Python?</button>
+          <button class="chip">Qual a data de hoje?</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="composer">
+      <div class="composer-inner">
+        <textarea id="input" rows="1" placeholder="Pergunte alguma coisa..." autofocus></textarea>
+        <button id="send" class="send" aria-label="Enviar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+      </div>
+      <p class="hint">Enter envia · Shift+Enter quebra linha</p>
+    </div>
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
