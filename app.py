@@ -12,6 +12,7 @@
 import os
 import uuid
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 from flask import Flask, request, jsonify, render_template, session
@@ -42,12 +43,16 @@ client = OpenAI(
 # FERRAMENTAS
 # ==========================================
 
+# Fuso horário de Brasília (o servidor roda em UTC)
+FUSO_BR = ZoneInfo("America/Sao_Paulo")
+
+
 def obter_hora_atual():
-    return datetime.now().strftime("%H:%M")
+    return datetime.now(FUSO_BR).strftime("%H:%M")
 
 
 def obter_data_atual():
-    return datetime.now().strftime("%d/%m/%Y")
+    return datetime.now(FUSO_BR).strftime("%d/%m/%Y")
 
 
 FUNCOES = {
